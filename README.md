@@ -32,6 +32,14 @@ bash scripts/dev.sh race
 
 竞态检测需要 C 编译器及启用 CGO。安装编译器后可使用 `CGO_ENABLED=1` 执行上述命令；脚本不会自动修改系统工具链。
 
+## 贡献与发布
+
+提交粒度、公开内容边界、可选本地 hooks 及发布前检查见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+```bash
+bash scripts/dev.sh public
+```
+
 ## 手动体验
 
 构建后，打开三个 WSL 终端，都先进入源码目录，再分别运行：

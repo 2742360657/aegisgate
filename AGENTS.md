@@ -5,10 +5,10 @@
 Before making changes, locate an optional, untracked local context file:
 
 ```sh
-git rev-parse --git-path agent-context.md
+git rev-parse --path-format=absolute --git-common-dir
 ```
 
-If that file exists, read it and follow its coordination entry points. It is machine-local metadata: never copy its contents or referenced private materials into the source tree, commits, issues, or pull requests. If it is absent, use the public documentation and the current request; do not infer a private owner's goals or learning progress.
+Read agent-context.md inside the returned directory if that file exists, then follow its coordination entry points. This shared metadata entry also works across linked worktrees. It is machine-local metadata: never copy its contents or referenced private materials into the source tree, commits, issues, or pull requests. If it is absent, use the public documentation and the current request; do not infer a private owner's goals or learning progress.
 
 ## Engineering
 

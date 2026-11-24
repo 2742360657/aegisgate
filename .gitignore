@@ -2,3 +2,19 @@
 *.out
 *.prof
 /coverage/
+__pycache__/
+*.pyc
+
+# Local context belongs outside the repository. These are fallback exclusions.
+.private/
+.local/
+local-context/
+missions/
+runs/
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.log
+*.bundle

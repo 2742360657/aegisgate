@@ -20,11 +20,13 @@ case "${1:-help}" in
   CGO_ENABLED=1 go test -race -p "$jobs" ./...
   ;;
  smoke) python3 scripts/smoke_test.py ;;
+ public) python3 scripts/check_public.py --staged; python3 scripts/check_public.py --history ;;
  check)
   unformatted="$(gofmt -l cmd internal)"
   if [[ -n "$unformatted" ]]; then printf 'Run fmt first:\n%s\n' "$unformatted"; exit 1; fi
   go vet -p "$jobs" ./...
   go test -p "$jobs" ./...
+  python3 -B -m unittest discover -s scripts/tests -v
   ;;
- *) echo "Usage: bash scripts/dev.sh {fmt|build|test|vet|race|smoke|check}"; exit 2 ;;
+ *) echo "Usage: bash scripts/dev.sh {fmt|build|test|vet|race|smoke|check|public}"; exit 2 ;;
 esac
